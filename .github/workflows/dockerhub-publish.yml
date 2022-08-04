@@ -42,7 +42,7 @@ jobs:
           push: true
           file: Dockerfile
           labels: ${{ steps.meta.outputs.labels }}
-          tags: albertowd/nsis:${{ base_image_tag }}-${{ nsis_ver }},albertowd/nsis:latest
+          tags: albertowd/nsis:${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }},albertowd/nsis:latest
       - name: Push NSIS-Log
         uses: docker/build-push-action@v3.1.0
         with:
@@ -51,7 +51,7 @@ jobs:
           push: true
           file: Dockerfile.log
           labels: ${{ steps.meta.outputs.labels }}
-          tags: albertowd/nsis:${{ base_image_tag }}-${{ nsis_ver }}-log,albertowd/nsis:log,albertowd/nsis:log-latest
+          tags: albertowd/nsis:${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}-log,albertowd/nsis:log,albertowd/nsis:log-latest
       - name: Push NSIS-StrLen
         uses: docker/build-push-action@v3.1.0
         with:
@@ -60,4 +60,4 @@ jobs:
           push: true
           file: Dockerfile.strlen
           labels: ${{ steps.meta.outputs.labels }}
-          tags: albertowd/nsis:${{ base_image_tag }}-${{ nsis_ver }}-strlen,albertowd/nsis:strlen,albertowd/nsis:strlen-latest
+          tags: albertowd/nsis:${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}-strlen,albertowd/nsis:strlen,albertowd/nsis:strlen-latest
