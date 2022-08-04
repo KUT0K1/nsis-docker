@@ -1,11 +1,7 @@
 name: DockerHub Publish
 
 on:
-  push:
-    branches:
-      - main
-    tags:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       base_image_tag:
         default: 'bullseye-slim'
