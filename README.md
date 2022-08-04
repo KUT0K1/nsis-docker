@@ -3,13 +3,15 @@
 NSIS images to compile installers on Docker/Linux based CI.
 Used to compile `*.nsi` installer scripts and run them on a Windows platform.
 
+Main [GitHub](https://github.com/albertowd/nsis) page for examples, features and issues.
+
 ## Tags
 
 Currently supported tags are:
 
-* bullseye-slim-3.08, latest - normal nsis compiler
-* bullseye-slim-3.08-log, latest-log, log - normal nsis compiler
-* bullseye-slim-3.08-strlen, latest-strlen, strlen - normal nsis compiler
+* [`bullseye-slim-3.08`](https://hub.docker.com/r/albertowd/nsis/tags?page=1&name=bullseye-slim-3.08), [`latest`](https://hub.docker.com/r/albertowd/nsis/tags?page=1&name=latest) - normal nsis compiler
+* [`bullseye-slim-3.08-log`](https://hub.docker.com/r/albertowd/nsis/tags?page=1&name=bullseye-slim-3.08-log), [`log-latest`](https://hub.docker.com/r/albertowd/nsis/tags?page=1&name=log-latest), [`log`](https://hub.docker.com/r/albertowd/nsis/tags?page=1&name=log) - nsis compiler with `install.log` support
+* [`bullseye-slim-3.08-strlen`](https://hub.docker.com/r/albertowd/nsis/tags?page=1&name=bullseye-slim-3.08-strlen), [`strlen-log`](https://hub.docker.com/r/albertowd/nsis/tags?page=1&name=strlen-latest), [`strlen`](https://hub.docker.com/r/albertowd/nsis/tags?page=1&name=strlen) - nsis compiler with extended string length
 
 ## Variants
 
