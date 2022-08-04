@@ -2,6 +2,7 @@
 
 NSIS images to compile installers on Docker/Linux based CI.
 Used to compile `*.nsi` installer scripts and run them on a Windows platform.
+
 ## Tags
 
 Currently supported tags are:
@@ -12,8 +13,6 @@ Currently supported tags are:
 
 ## Variants
 
-*Attention*: there is no image with log and extended string support combined yet, I think that is needed a croos-compiler image so the stubs can be generated respectively.
-
 ### Log
 
 This version could be use as a test version of the installer, it will create an `install.log` file on the install folder with the detail of each section that has the `SetLog on` diretive.
@@ -23,7 +22,9 @@ This version could be use as a test version of the installer, it will create an 
 
 This version has support for larger string lengths, if your installer changes the current Window path (can be very large indeed), it's a good ideia to use it.
 
-# Using
+**Attention**: there is no image with log and extended string support combined yet, I think that is needed a croos-compiler image so the stubs can be generated respectively.
+
+## Usage
 
 To make your installer, just run the image with a volume pointing to `/build:rw` and the output folder to be within the same folder.
 The arguments can be passed as the original `makensis.exe` executable would parse *BUT* the Linux executable uses `-` instead of the original `/` character to indicate parameters:

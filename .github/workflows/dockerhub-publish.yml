@@ -47,7 +47,7 @@ jobs:
         uses: docker/build-push-action@v3.1.0
         with:
           build-args: |
-            BASE_IMAGE_TAG=${{ inputs.base_image_tag }}
+            BASE_IMAGE_TAG=${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}
           context: .
           push: true
           file: Dockerfile.log
@@ -60,7 +60,7 @@ jobs:
         uses: docker/build-push-action@v3.1.0
         with:
           build-args: |
-            BASE_IMAGE_TAG=${{ inputs.base_image_tag }}
+            BASE_IMAGE_TAG=${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}
           context: .
           push: true
           file: Dockerfile.strlen
