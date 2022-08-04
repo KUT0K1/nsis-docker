@@ -29,42 +29,31 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4.0.1
         with:
-          images: 
-            - albertowd/nsis
+          images: albertowd/nsis
       - name: Push NSIS
         uses: docker/build-push-action@v3.1.0
         with:
-          build_args:
-            - BASE_IMAGE_TAG=${{ inputs.base_image_tag }}
-            - NSIS_VER=${{ inputs.nsis_ver }}
+          build_args: BASE_IMAGE_TAG=${{ inputs.base_image_tag }},NSIS_VER=${{ inputs.nsis_ver }}
           context: .
           push: true
           file: Dockerfile
           labels: ${{ steps.meta.outputs.labels }}
-          tags:
-            - albertowd/nsis:${{ base_image_tag }}-${{ nsis_ver }}
-            - albertowd/nsis:latest
+          tags: albertowd/nsis:${{ base_image_tag }}-${{ nsis_ver }},albertowd/nsis:latest
       - name: Push NSIS-Log
         uses: docker/build-push-action@v3.1.0
         with:
-          build_args:
-            - BASE_IMAGE_TAG=${{ inputs.base_image_tag }}
+          build_args: BASE_IMAGE_TAG=${{ inputs.base_image_tag }}
           context: .
           push: true
           file: Dockerfile.log
           labels: ${{ steps.meta.outputs.labels }}
-          tags:
-            - albertowd/nsis:${{ base_image_tag }}-${{ nsis_ver }}-log
-            - albertowd/nsis:log-latest
+          tags: albertowd/nsis:${{ base_image_tag }}-${{ nsis_ver }}-log,albertowd/nsis:log,albertowd/nsis:log-latest
       - name: Push NSIS-StrLen
         uses: docker/build-push-action@v3.1.0
         with:
-          build_args:
-            - BASE_IMAGE_TAG=${{ inputs.base_image_tag }}
+          build_args: BASE_IMAGE_TAG=${{ inputs.base_image_tag }}
           context: .
           push: true
           file: Dockerfile.strlen
           labels: ${{ steps.meta.outputs.labels }}
-          tags:
-            - albertowd/nsis:${{ base_image_tag }}-${{ nsis_ver }}-strlen,
-            - albertowd/nsis:strlen-latest
+          tags: albertowd/nsis:${{ base_image_tag }}-${{ nsis_ver }}-strlen,albertowd/nsis:strlen,albertowd/nsis:strlen-latest
