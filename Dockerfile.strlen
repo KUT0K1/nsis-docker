@@ -1,11 +1,9 @@
 ARG BASE_IMAGE_TAG=
 FROM albertowd/nsis:${BASE_IMAGE_TAG}
 
-ARG NSIS_VER=
-ARG BASE_IMAGE_TAG=
 LABEL author="alberto+git@albertowd.dev"
 LABEL description="NSIS images to compile installers on Docker/Linux based CI with extended string length support."
-LABEL version=${BASE_IMAGE_TAG}-nsis${NSIS_VER}-log
+LABEL version=${BASE_IMAGE_TAG}-nsis${NSIS_VER}-strlen
 
 # Install strlen stubs upon the original.
 RUN wget -O /tmp/nsis-strlen.zip https://sourceforge.net/projects/nsis/files/NSIS%203/${NSIS_VER}/nsis-${NSIS_VER}-strlen_8192.zip && \
