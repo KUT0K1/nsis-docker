@@ -29,7 +29,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4.0.1
         with:
-          images: ${{ secrets.DOCKER_HUB_USERNAME }}/nsis
+          images: ${{ secrets.DOCKER_USERNAME }}/nsis
       - name: Push NSIS
         uses: docker/build-push-action@v3.1.0
         with:
@@ -41,8 +41,8 @@ jobs:
           file: Dockerfile
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            ${{ secrets.DOCKER_HUB_USERNAME }}/nsis:${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}
-            ${{ secrets.DOCKER_HUB_USERNAME }}/nsis:latest
+            ${{ secrets.DOCKER_USERNAME }}/nsis:${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}
+            ${{ secrets.DOCKER_USERNAME }}/nsis:latest
       - name: Push NSIS-Log
         uses: docker/build-push-action@v3.1.0
         with:
@@ -53,9 +53,9 @@ jobs:
           file: Dockerfile.log
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            ${{ secrets.DOCKER_HUB_USERNAME }}/nsis:${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}-log
-            ${{ secrets.DOCKER_HUB_USERNAME }}/nsis:log
-            ${{ secrets.DOCKER_HUB_USERNAME }}/nsis:log-latest
+            ${{ secrets.DOCKER_USERNAME }}/nsis:${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}-log
+            ${{ secrets.DOCKER_USERNAME }}/nsis:log
+            ${{ secrets.DOCKER_USERNAME }}/nsis:log-latest
       - name: Push NSIS-StrLen
         uses: docker/build-push-action@v3.1.0
         with:
@@ -66,6 +66,6 @@ jobs:
           file: Dockerfile.strlen
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            ${{ secrets.DOCKER_HUB_USERNAME }}/nsis:${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}-strlen
-            ${{ secrets.DOCKER_HUB_USERNAME }}/nsis:strlen
-            ${{ secrets.DOCKER_HUB_USERNAME }}/nsis:strlen-latest
+            ${{ secrets.DOCKER_USERNAME }}/nsis:${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}-strlen
+            ${{ secrets.DOCKER_USERNAME }}/nsis:strlen
+            ${{ secrets.DOCKER_USERNAME }}/nsis:strlen-latest
