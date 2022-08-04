@@ -1,0 +1,18 @@
+ARG BASE_IMAGE_TAG=
+FROM albertowd/nsis:${BASE_IMAGE_TAG}
+
+LABEL author="alberto+git@albertowd.dev"
+LABEL description="NSIS images to compile installers on Docker/Linux based CI with install.log support."
+LABEL version=${BASE_IMAGE_TAG}-nsis${NSIS_VER}-log
+
+# Install log stubs upon the original.
+RUN wget -O /tmp/nsis-log.zip https://sourceforge.net/projects/nsis/files/NSIS%203/${NSIS_VER}/nsis-${NSIS_VER}-log.zip && \
+    unzip -o /tmp/nsis-log.zip -d /usr/local/nsis/ && \
+    rm -rf /tmp/*
+
+# Recompiles the NSIS compiler with the log enabled flag.
+RUN scons -C /usr/local/src/nsis/ NSIS_CONFIG_CONST_DATA_PATH=no NSIS_CONFIG_LOG=yes SKIPMISC=all SKIPPLUGINS=all SKIPSTUBS=all SKIPUTILS=all PREFIX=/usr/local/nsis/bin install-compiler
+
+ENTRYPOINT [ "makensis" ]
+VOLUME /build/
+WORKDIR /build/
