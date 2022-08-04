@@ -40,4 +40,6 @@ podman run --rm -v "${PWD}:/build:rw" albertowd/nsis:latest -DAPP_VERSION="1.0.0
 
 ## TODO
 
+* Combined log+strlen image
 * Smaller size image
+* Tag ref for the README and DockerHub

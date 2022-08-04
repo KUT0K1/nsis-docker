@@ -1,6 +1,11 @@
-name: publish-image
+name: DockerHub Publish
 
 on:
+  push:
+    branches:
+      - main
+    tags:
+      - *
   workflow_call:
     inputs:
       base_image_tag:
