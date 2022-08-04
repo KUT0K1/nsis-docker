@@ -6,9 +6,9 @@ Used to compile `*.nsi` installer scripts and run them on a Windows platform.
 
 Currently supported tags are:
 
-* bullseys-slim-3.08, latest - normal nsis compiler
-* bullseys-slim-3.08-log, latest-log, log - normal nsis compiler
-* bullseys-slim-3.08-strlen, latest-strlen, strlen - normal nsis compiler
+* bullseye-slim-3.08, latest - normal nsis compiler
+* bullseye-slim-3.08-log, latest-log, log - normal nsis compiler
+* bullseye-slim-3.08-strlen, latest-strlen, strlen - normal nsis compiler
 
 ## Variants
 
@@ -37,3 +37,7 @@ On Docker/Podman:
 ```powershell
 podman run --rm -v "${PWD}:/build:rw" albertowd/nsis:latest -DAPP_VERSION="1.0.0" -X"SetCompressor /SOLID lzma" ./examples/installer.nsi
 ```
+
+## TODO
+
+* Smaller size image
