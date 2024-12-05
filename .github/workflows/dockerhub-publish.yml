@@ -36,6 +36,9 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ github.repository }}
+          tags: |
+            # set latest tag for master branch
+            type=raw,value=latest
 
       - name: Push NSIS
         uses: docker/build-push-action@v6
@@ -48,8 +51,8 @@ jobs:
           file: Dockerfile
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            ${{ github.repository | toLowerCase() }}:${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}
-            ${{ github.repository | toLowerCase() }}:latest
+            ${{ github.repository }}:${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}
+            ${{ github.repository }}:latest
 
       - name: Push NSIS-Log
         uses: docker/build-push-action@v6
