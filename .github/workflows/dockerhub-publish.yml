@@ -33,12 +33,12 @@ jobs:
 
       - name: Extract metadata for Docker
         id: meta
-        uses: docker/metadata-action@v4.0.1
+        uses: docker/metadata-action@v4
         with:
           images: ${{ github.repository }}
 
       - name: Push NSIS
-        uses: docker/build-push-action@v3.1.0
+        uses: docker/build-push-action@v6
         with:
           build-args: |
             BASE_IMAGE_TAG=${{ inputs.base_image_tag }}
@@ -48,11 +48,11 @@ jobs:
           file: Dockerfile
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            ${{ github.repository | toLower }}:${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}
-            ${{ github.repository | toLower }}:latest
+            ${{ github.repository }}:${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}
+            ${{ github.repository }}:latest
 
       - name: Push NSIS-Log
-        uses: docker/build-push-action@v3.1.0
+        uses: docker/build-push-action@v6
         with:
           build-args: |
             BASE_IMAGE_TAG=${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}
@@ -61,12 +61,12 @@ jobs:
           file: Dockerfile.log
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            ${{ github.repository | toLower }}:${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}-log
-            ${{ github.repository | toLower }}:log
-            ${{ github.repository | toLower }}:log-latest
+            ${{ github.repository }}:${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}-log
+            ${{ github.repository }}:log
+            ${{ github.repository }}:log-latest
 
       - name: Push NSIS-StrLen
-        uses: docker/build-push-action@v3.1.0
+        uses: docker/build-push-action@v6
         with:
           build-args: |
             BASE_IMAGE_TAG=${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}
@@ -75,6 +75,6 @@ jobs:
           file: Dockerfile.strlen
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            ${{ github.repository | toLower }}:${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}-strlen
-            ${{ github.repository | toLower }}:strlen
-            ${{ github.repository | toLower }}:strlen-latest
+            ${{ github.repository }}:${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}-strlen
+            ${{ github.repository }}:strlen
+            ${{ github.repository }}:strlen-latest
