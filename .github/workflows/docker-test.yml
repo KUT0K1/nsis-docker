@@ -32,5 +32,6 @@ jobs:
 
       - name: Debug metadata
         run: |
+          echo "${{ github.repository_owner }}"
           echo "${{ env.IMAGE_NAME }}"
           echo "${{ steps.meta.outputs.tags }}"
