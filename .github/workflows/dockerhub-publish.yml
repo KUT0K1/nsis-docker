@@ -3,6 +3,10 @@ name: DockerHub Publish
 on:
   workflow_dispatch:
     inputs:
+      branch:
+        description: 'Branch to run the workflow on'
+        required: true
+        default: 'main'
       base_image_tag:
         default: 'bullseye-slim'
         description: 'Base debian image tag to build'
