@@ -31,4 +31,6 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       - name: Debug metadata
-        run: echo "${{ steps.meta.outputs.tags }}"
+        run: |
+          echo "${{ env.IMAGE_NAME }}"
+          echo "${{ steps.meta.outputs.tags }}"
