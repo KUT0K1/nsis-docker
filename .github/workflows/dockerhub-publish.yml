@@ -37,8 +37,8 @@ jobs:
         with:
           images: ${{ github.repository }}
           tags: |
-            # set latest tag for master branch
-            type=raw,value=latest
+            type=raw,value=${{ github.repository }}:${{ inputs.base_image_tag }}-${{ inputs.nsis_ver }}
+            type=raw,value=${{ github.repository }}:latest
 
       - name: Push NSIS
         uses: docker/build-push-action@v6
