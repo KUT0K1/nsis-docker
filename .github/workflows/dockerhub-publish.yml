@@ -35,7 +35,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4.0.1
         with:
-          images: ${{ github.repository | toLower }}
+          images: ${{ github.repository }}
 
       - name: Push NSIS
         uses: docker/build-push-action@v3.1.0
