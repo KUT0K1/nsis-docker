@@ -28,7 +28,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/KUT0K1/nsis-docker
+          images: ${{ env.REGISTRY }}/Us3r1/nsis-docker
 
       - name: Debug metadata
         run: |
