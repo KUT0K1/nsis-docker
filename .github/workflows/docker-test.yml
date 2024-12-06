@@ -50,3 +50,15 @@ jobs:
           echo "${{ github.repository_owner }}"
           echo "${{ env.IMAGE_NAME }}"
           echo "${{ steps.meta.outputs.tags }}"
+
+      - name: Push NSIS
+        uses: docker/build-push-action@v3.1.0
+        with:
+          build-args: |
+            BASE_IMAGE_TAG=${{ inputs.base_image_tag }}
+            NSIS_VER=${{ inputs.nsis_ver }}
+          context: .
+          push: true
+          file: Dockerfile
+          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta.outputs.tags }}
